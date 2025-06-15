@@ -1,4 +1,4 @@
-let isPenguinMod = false, inCredits = false;
+let isPenguinMod = true, inCredits = false;
 let currentTag = "all", downloadType = "download";
 let compress = false, eraseDeprecation = false;
 let galleryData = {}, pins = [];
@@ -82,8 +82,8 @@ function addBtnBehaviours() {
 
   if (isPenguinMod) {
     const logo = document.querySelector(`img[class="toHost"]`);
-    logo.src = "Gallery%20Files/main-assets/logo-PM.svg";
-    logo.setAttribute("onclick", "window.open('https://penguinmod.com/')");
+    logo.src = "Gallery%20Files/main-assets/logo-GM.svg";
+    logo.setAttribute("onclick", "window.open('https://deletelatermod.github.io/')");
   }
 }
 
@@ -193,8 +193,8 @@ async function downloadExt(name, data) {
     if (!messager) return alert("Failed to request to PenguinMod!");
     messager.postMessage({
       loadExt: `https://sharkpools-extensions.vercel.app/${data.url}`
-    }, "https://studio.penguinmod.com");
-    genText("center-notif", "Copied to PenguinMod! Check the Editor");
+    }, "https://deletelatermod.github.io");
+    genText("center-notif", "Copied to GreenMod! Check the Editor");
     return;
   }
 
@@ -336,9 +336,9 @@ function openSettingsPanel() {
   if (isPenguinMod) {
     const pmDesc = document.createElement("div");
     pmDesc.classList.add("pm-descriptor");
-    pmDesc.textContent = "You are browsing the PenguinMod version of the Gallery. Extensions are automatically added to the Editor when clicked"; 
+    pmDesc.textContent = "You are browsing the GreenMod version of the Gallery. Extensions are automatically added to the Editor when clicked."; 
     const extraStyles = document.createElement("style");
-    extraStyles.innerHTML = `.setting-holder{margin-top:15px;filter:blur(3px) brightness(75%)}.pm-descriptor{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:400px;z-index:99;font-size:16px;font-style:italic;font-weight:600;text-shadow:#000 0 0 15px;color:pink}`;
+    extraStyles.innerHTML = `.setting-holder{margin-top:15px;filter:blur(3px) brightness(75%)}.pm-descriptor{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:400px;z-index:99;font-size:16px;font-style:italic;font-weight:700;text-shadow:#000 0 0 15px;color:green}`;
     panelContainer.append(extraStyles, pmDesc);
   }
 
@@ -400,7 +400,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!galleryData.site["is up"]) window.location.href = "pages/down.html";
   else {
     const params = new URLSearchParams(location.search);
-    isPenguinMod = params.get("originPM") === "true";
+   // isPenguinMod = params.get("originPM") === "true"; // uh uh uh, if it wasnt greenmod, then you wouldn't be here
     getCleanStorage();
     currentTag = params.get("tag") || currentTag;
     addBtnBehaviours();
