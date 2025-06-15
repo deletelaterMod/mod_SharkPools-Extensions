@@ -196,7 +196,7 @@ async function downloadExt(name, data) {
     // }, "https://deletelatermod.github.io");
     // genText("center-notif", "Copied to GreenMod! Check the Editor");
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(`https://sharkpools-extensions.vercel.app/${data.url}`);
       gentext("center-notif", "Copied to clipboard!")
     } catch (err) {
       alert('Failed to copy text: ', err);
