@@ -189,12 +189,18 @@ function filterExts(json, searchQ) {
 
 async function downloadExt(name, data) {
   if (isPenguinMod) {
-    const messager = window.opener || window.parent;
-    if (!messager) return alert("Failed to request to PenguinMod!");
-    messager.postMessage({
-      loadExt: `https://sharkpools-extensions.vercel.app/${data.url}`
-    }, "https://deletelatermod.github.io");
-    genText("center-notif", "Copied to GreenMod! Check the Editor");
+    // const messager = window.opener || window.parent;
+    // if (!messager) return alert("Failed to request to PenguinMod!");
+    // messager.postMessage({
+    //   loadExt: `https://sharkpools-extensions.vercel.app/${data.url}`
+    // }, "https://deletelatermod.github.io");
+    // genText("center-notif", "Copied to GreenMod! Check the Editor");
+    try {
+      await navigator.clipboard.writeText(text);
+      gentext("center-notif", "Copied to clipboard!")
+    } catch (err) {
+      alert('Failed to copy text: ', err);
+    }
     return;
   }
 
