@@ -13,6 +13,10 @@ body {
   justify-content: center;
   align-content: center;
   gap: 15px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 660px;
 }
 .navBar .navHeader {
   display: flex;
@@ -46,6 +50,10 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
 }
 .innerNav .navImg {
   width: 70px;
@@ -77,10 +85,10 @@ body {
   user-select: none;
   width: auto;
   height: 35px;
-  margin: 10px auto;
+  margin: 10px .15em;
   padding: 2px 10px 2px;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.2em;
   line-height: 35px;
   background-color: #00b8ff;
   border: solid 5px #007dff;
@@ -103,9 +111,9 @@ body {
 }
 .ext-breaker {
   display: inline-block;
-  width: 90%;
+  width: 100%;
   border-bottom: dashed 6px rgba(255,255,255,0.2);
-  margin: 10px;
+  margin: 10px 5% 10px 5%;
 }
 .ext-holder {
   display: inline-block;
