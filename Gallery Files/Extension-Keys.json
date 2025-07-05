@@ -52,7 +52,7 @@
       "url": "extension-code/Tune-Shark-V3.js",
       "banner": "extension-thumbs/Tune-Shark-V3.svg",
       "tags": ["all", "utilities", "expanded", "category"],
-      "status": "update",
+      "status": "",
       "date": "Last Updated: 06/21/2025"
     },
     "Tune-Shark": {
@@ -89,8 +89,8 @@
       "url": "extension-code/Sound-Waves.js",
       "banner": "extension-thumbs/Sound-Waves.svg",
       "tags": ["all", "utilities"],
-      "status": "",
-      "date": "Last Updated: 04/10/2025"
+      "status": "update",
+      "date": "Last Updated: 06/29/2025"
     },
     "Hyper-Sense": {
       "desc": "New Sensing Blocks",
@@ -98,7 +98,7 @@
       "url": "extension-code/Hyper-Sense-V2.js",
       "banner": "extension-thumbs/Hyper-Sense.svg",
       "tags": ["all", "utilities", "expanded", "category"],
-      "status": "new",
+      "status": "",
       "date": "Re-Released: 06/23/2025"
     },
     "Keys-Plus-V2": {
@@ -343,8 +343,9 @@
       "url": "extension-code/Messages-Plus.js",
       "banner": "extension-thumbs/Messages-Plus.svg",
       "tags": ["all", "expanded", "utilities", "category"],
-      "status": "",
-      "date": "Last Updated: 10/29/2024"
+      "overrideLabeler": true,
+      "status": "update",
+      "date": "Last Updated: 07/01/2025"
     },
     "Advanced-Messages": {
       "desc": "New Message Blocks for Advanced, Non-Vanilla Purposes",
@@ -487,8 +488,9 @@
       "url": "extension-code/Renderer-Control.js",
       "banner": "extension-thumbs/Renderer-Control.svg",
       "tags": ["all", "utilities", "expanded", "category"],
-      "status": "",
-      "date": "Last Updated: 12/05/2024"
+      "overrideLabeler": true,
+      "status": "update",
+      "date": "Last Updated: 07/01/2025"
     },
     "Timezones": {
       "desc": "Convert and get the Time in different Timezones",
@@ -595,8 +597,9 @@
       "url": "extension-code/JSON-Array.js",
       "banner": "extension-thumbs/JSON-Array.svg",
       "tags": ["all", "utilities", "expanded"],
-      "status": "",
-      "date": "Last Updated: 04/21/2025"
+      "overrideLabeler": true,
+      "status": "update",
+      "date": "Last Updated: 06/29/2025"
     },
     "My-Blocks-Plus": {
       "desc": "Better Custom Blocks",
@@ -649,6 +652,7 @@
       "url": "extension-code/Example.js",
       "banner": "extension-thumbs/Example.svg",
       "tags": ["all", "utilities", "expanded", "fetching", "category", "addon", "searchQ"],
+      "overrideLabeler": false,
       "status": "",
       "date": ""
     }

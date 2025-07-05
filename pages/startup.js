@@ -2,6 +2,7 @@ let isPenguinMod = true, inCredits = false;
 let currentTag = "all", downloadType = "download";
 let compress = false, eraseDeprecation = false;
 let galleryData = {}, pins = [];
+let _cachedExtTags = undefined;
 
 /* Storage */
 function getCleanStorage() {
@@ -18,13 +19,15 @@ function getCleanStorage() {
   downloadType = store.downloadType || "download";
   compress = store.compress ?? false;
   eraseDeprecation = store.eraseDeprecation ?? false;
+  _cachedExtTags = store._cachedExtTags;
   if (store.pinnedExts && Array.isArray(store.pinnedExts)) pins = store.pinnedExts;
 }
 
 function updateStorage() {
   localStorage.setItem("SPgalleryInfo", JSON.stringify({
     tag: currentTag, pinnedExts: pins,
-    downloadType, compress, eraseDeprecation
+    downloadType, compress, eraseDeprecation,
+    _cachedExtTags
   }));
 }
 
@@ -147,7 +150,6 @@ function removeText() {
 
 /* Internal Utils */
 function filterExts(json, searchQ) {
-  delete json.Example;
   const entries = Object.entries(json);
   let newEntries = [];
   if (currentTag === "search") {
@@ -185,6 +187,24 @@ function filterExts(json, searchQ) {
     else pinOrder.push(entry);
   });
   return Object.fromEntries(pinOrder);
+}
+
+function cleanupExtList(json) {
+  const tagCache = _cachedExtTags?.tags;
+  if (!tagCache) return;
+
+  delete json.Example;
+  const values = Object.values(json);
+  for (const extData of values) {
+    if (extData.overrideLabeler) continue;
+
+    const cached = tagCache.find((e) => e.ID === extData.url);
+    if (cached) {
+      const properDate = cached.date.replaceAll("-", "/");
+      extData.status = cached.isNew ? "new" : "update";
+      extData.date = cached.isNew ? `Released: ${properDate}` : `Last Updated: ${properDate}`;
+    }
+  }
 }
 
 async function downloadExt(name, data) {
@@ -410,6 +430,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     getCleanStorage();
     currentTag = params.get("tag") || currentTag;
     addBtnBehaviours();
+
+    await window.fetchAutoLabeler();
+    cleanupExtList(galleryData.extensions);
     displayExts(filterExts(galleryData.extensions));
   }
 });
